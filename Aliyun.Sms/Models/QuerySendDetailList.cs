@@ -12,6 +12,6 @@ namespace Aliyun.Sms.Models
         /// <summary>
         /// 短信发送明细。
         /// </summary>
-        IEnumerable<QuerySendDetail> SmsSendDetailDTO { get; set; }
+        public IEnumerable<QuerySendDetail> SmsSendDetailDTO { get; set; }
     }
 }
