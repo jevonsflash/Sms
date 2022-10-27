@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>AbpBoilerplate.Aliyun.Sms</PackageId>
+		<PackageId>AbpBoilerplate.TencentCloud.Sms</PackageId>
 		<Version>0.1.2</Version>
-		<LangVersion>latest</LangVersion>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<LangVersion>latest</LangVersion>
 		<Authors>LinXiao</Authors>
 		<Company>MatoApp</Company>
 		<Copyright>Copyright © 2022</Copyright>
@@ -17,12 +17,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Abp" Version="7.3.0" />
-		<PackageReference Include="aliyun-net-sdk-core" Version="1.5.11" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
-
 	</ItemGroup>
 
 	<ItemGroup>

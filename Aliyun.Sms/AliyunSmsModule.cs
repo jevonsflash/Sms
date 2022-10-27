@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Abp.Reflection.Extensions;
 using System.Reflection;
+using Sms.Configuration;
 
 namespace Aliyun.Sms
 {
@@ -19,10 +20,10 @@ namespace Aliyun.Sms
         }
         public override void PreInitialize()
         {
-            IocManager.Register<IAliyumSmsConfiguration, AliyumSmsConfiguration>();
-            Configuration.Modules.RocketChat().RegionId = _appConfiguration["Sms:RegionId"];
-            Configuration.Modules.RocketChat().AccessKey = _appConfiguration["Sms:AccessKey"];
-            Configuration.Modules.RocketChat().AccessKeySecret = _appConfiguration["Sms:AccessKeySecret"];
+            IocManager.Register<IAliyunSmsConfiguration, AliyunSmsConfiguration>();
+            Configuration.Modules.AliyunSms().RegionId = _appConfiguration["AliyunSms:RegionId"];
+            Configuration.Modules.AliyunSms().AccessKey = _appConfiguration["AliyunSms:AccessKey"];
+            Configuration.Modules.AliyunSms().AccessKeySecret = _appConfiguration["AliyunSms:AccessKeySecret"];
         }
 
         public override void Initialize()

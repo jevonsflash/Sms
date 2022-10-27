@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Abp.Extensions;
 using Abp.Reflection.Extensions;
 
-namespace Aliyun.Sms.Configuration
+namespace Sms.Configuration
 {
     public static class AppConfigurations
     {

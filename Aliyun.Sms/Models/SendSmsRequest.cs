@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Sms.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace Aliyun.Sms.Models
 {
-    public class SendSmsRequest
+    public class SendSmsRequest: ISendSmsRequest
     {
 
         /// <summary>

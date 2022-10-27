@@ -1,3 +1,4 @@
+using Sms.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace Aliyun.Sms.Models
     /// <summary>
     /// 短信发送明细
     /// </summary>
-    public class QuerySendDetail
+    public class QuerySendDetail: IQuerySendDetail
     {
         /// <summary>
         /// 短信发送日期和时间。

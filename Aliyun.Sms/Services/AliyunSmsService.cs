@@ -8,17 +8,17 @@ using Aliyun.Sms.Configuration;
 using Aliyun.Sms.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using Sms.Interfaces;
 
 namespace Aliyun.Sms.Services
 {
     public class AliyunSmsService : IAliyunSmsService, ISingletonDependency
     {
-        private readonly IAliyumSmsConfiguration _aliyumSmsConfiguration;
+        private readonly IAliyunSmsConfiguration _aliyumSmsConfiguration;
         private readonly ILogger<AliyunSmsService> _logger;
         private readonly DefaultAcsClient client;
 
-        public AliyunSmsService(IAliyumSmsConfiguration aliyumSmsConfiguration, ILogger<AliyunSmsService> logger)
+        public AliyunSmsService(IAliyunSmsConfiguration aliyumSmsConfiguration, ILogger<AliyunSmsService> logger)
         {
             _aliyumSmsConfiguration=aliyumSmsConfiguration;
             _logger = logger;
@@ -27,7 +27,7 @@ namespace Aliyun.Sms.Services
         }
 
 
-        public virtual async Task<SendSmsResponse> SendSmsAsync(SendSmsRequest req)
+        public virtual async Task<ISendSmsResponse> SendSmsAsync(ISendSmsRequest req)
         {
             var request = new CommonRequest
             {
