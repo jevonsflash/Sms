@@ -5,7 +5,7 @@
 
 Aliyun.Sms由阿里云Sms提供服务(https://www.aliyun.com/product/sms)
 
-Tencent.Sms由腾讯云Sms提供服务(https://cloud.tencent.com/product/sms)
+TencentCloud.Sms由腾讯云Sms提供服务(https://cloud.tencent.com/product/sms)
 
 
 
