@@ -13,7 +13,7 @@ namespace Aliyun.Sms.Models
         /// </summary>
         /// <value>The phone numbers.</value>
         [Required]
-        public string PhoneNumbers { get; set; }
+        public string[] PhoneNumbers { get; set; }
 
         /// <summary>
         /// 短信模板ID。请在控制台模板管理页面模板CODE一列查看。

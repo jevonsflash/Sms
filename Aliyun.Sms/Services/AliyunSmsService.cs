@@ -37,7 +37,7 @@ namespace Aliyun.Sms.Services
                 Action = "SendSms"
             };
             // request.Protocol = ProtocolType.HTTP;
-            request.AddQueryParameters("PhoneNumbers", req.PhoneNumbers);
+            request.AddQueryParameters("PhoneNumbers", string.Join(",", req.PhoneNumbers));
             request.AddQueryParameters("SignName", req.SignName);
             request.AddQueryParameters("TemplateCode", req.TemplateCode);
             request.AddQueryParameters("TemplateParam", req.TemplateParam);

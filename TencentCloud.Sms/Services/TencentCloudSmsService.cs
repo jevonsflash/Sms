@@ -20,21 +20,27 @@ namespace TencentCloud.Sms.Services
             ITencentCloudSmsConfiguration tencentCloudSmsConfiguration,
             SdkApiRequester requester)
         {
-            this.tencentCloudSmsConfiguration=tencentCloudSmsConfiguration;
-            _requester=requester;
+            this.tencentCloudSmsConfiguration = tencentCloudSmsConfiguration;
+            _requester = requester;
         }
 
         public virtual async Task<ISendSmsResponse> SendSmsAsync(ISendSmsRequest req)
         {
+            var phoneNumberSet = new List<string>();
+            foreach (var phoneNumber in req.PhoneNumbers)
+            {
+                phoneNumberSet.Add($"+86{phoneNumber}");
+            }
+
             var request = new SdkSendSmsRequest(
-                new[] {  $"+86{req.PhoneNumbers}", }, req.TemplateCode, tencentCloudSmsConfiguration.SmsSdkAppId, req.SignName, JsonConvert.DeserializeObject<string[]>(req.TemplateParam)
+                phoneNumberSet.ToArray(), req.TemplateCode, tencentCloudSmsConfiguration.SmsSdkAppId, req.SignName, JsonConvert.DeserializeObject<string[]>(req.TemplateParam)
 
             );
 
             var commonOptions = new SdkOptions
             {
-                SecretId =tencentCloudSmsConfiguration.SecretId,
-                SecretKey =tencentCloudSmsConfiguration.SecretKey
+                SecretId = tencentCloudSmsConfiguration.SecretId,
+                SecretKey = tencentCloudSmsConfiguration.SecretKey
             };
 
             var result = await _requester.SendRequestAsync<TencentCloudSendSmsResponse>(request,
@@ -44,10 +50,10 @@ namespace TencentCloud.Sms.Services
             {
                 return new SendSmsResponse()
                 {
-                    Code=ss.Code,
-                    Message=ss.Message,
-                    RequestId=result.RequestId,
-                    BizId=ss.SerialNo
+                    Code = ss.Code,
+                    Message = ss.Message,
+                    RequestId = result.RequestId,
+                    BizId = ss.SerialNo
                 };
             }
             return default;
@@ -57,6 +63,5 @@ namespace TencentCloud.Sms.Services
 
 
     }
-
 
 }

@@ -7,7 +7,7 @@ namespace TencentCloud.Sms.Models
     {
 
         [Required]
-        public string PhoneNumbers { get; set; }
+        public string[] PhoneNumbers { get; set; }
         [Required]
         public string TemplateCode { get; set; }
 

@@ -4,7 +4,7 @@ namespace Sms.Interfaces
 {
     public interface ISendSmsRequest
     {
-        public string PhoneNumbers { get; set; }
+        public string[] PhoneNumbers { get; set; }
 
         public string TemplateCode { get; set; }
 

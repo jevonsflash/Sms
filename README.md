@@ -83,7 +83,7 @@ public class CaptchaManager : DomainService
 
         var captcha = CommonHelper.GetRandomCaptchaNumber();
         var model = new SendSmsRequest();
-        model.PhoneNumbers= phoneNumber;
+        model.PhoneNumbers= new string[] { phoneNumber };
         model.SignName="MatoApp";   //阿里云或腾讯云后台签名管理中设置应用名称
         model.TemplateCode="SMS_255330989";  //阿里云或腾讯云后台模板管理中设置模板
         model.TemplateParam="{'code':'"+captcha+"'}";
